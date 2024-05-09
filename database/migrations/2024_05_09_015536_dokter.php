@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admin', function (Blueprint $table) {
+        Schema::create('dokter', function(Blueprint $table){
             $table->id();
-            $table->string('nama_admin', 45);
-            $table->string('keterangan', 45);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
+            $table->string('nama_dokter', 45);
+            $table->string('jabatan', 45);
         });
     }
 
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('dokter');
     }
 };
